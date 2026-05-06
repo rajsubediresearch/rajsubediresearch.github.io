@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raj Subedi | Epidemiology Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      background: #F9FAFB;
+      color: #111827;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #E5E7EB;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 28px; color: #fff; font-weight: 600;
+      margin-bottom: 16px; letter-spacing: -1px;
+    }
+
+    header h1 {
+      font-size: 24px; font-weight: 600; color: #111827;
+      letter-spacing: -0.03em; margin-bottom: 6px;
+    }
+
+    header .role {
+      font-size: 13px; color: #6B7280; margin-bottom: 4px;
+    }
+
+    header .affil {
+      font-size: 12px; color: #9CA3AF;
+    }
+
+    .social-links {
+      display: flex; gap: 12px; justify-content: center; margin-top: 16px;
+    }
+
+    .social-links a {
+      font-size: 11px; color: #6B7280; text-decoration: none;
+      padding: 4px 10px; border: 1px solid #E5E7EB; border-radius: 999px;
+      transition: all 0.15s;
+    }
+
+    .social-links a:hover {
+      background: #F3F4F6; color: #111827;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px; margin: 0 auto; padding: 48px 24px 80px;
+    }
+
+    .section-label {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #9CA3AF; margin-bottom: 20px;
+    }
+
+    /* ── Tool cards ── */
+    .tools-grid {
+      display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px;
+    }
+
+    .tool-card {
+      background: #fff; border: 1px solid #E5E7EB; border-radius: 12px;
+      padding: 20px 24px; text-decoration: none; color: inherit;
+      display: flex; align-items: flex-start; gap: 18px;
+      transition: all 0.15s; position: relative; overflow: hidden;
+    }
+
+    .tool-card:hover {
+      border-color: #2563EB; box-shadow: 0 4px 16px rgba(37,99,235,0.08);
+      transform: translateY(-1px);
+    }
+
+    .tool-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+
+    .tool-card .tool-body { flex: 1; min-width: 0; }
+
+    .tool-card h3 {
+      font-size: 15px; font-weight: 600; color: #111827;
+      margin-bottom: 4px; letter-spacing: -0.01em;
+    }
+
+    .tool-card p {
+      font-size: 12px; color: #6B7280; line-height: 1.6; margin-bottom: 10px;
+    }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .tag {
+      font-size: 10px; padding: 2px 8px; border-radius: 999px;
+      font-weight: 500; border: 1px solid;
+    }
+
+    .tool-arrow {
+      font-size: 18px; color: #D1D5DB; align-self: center; flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    .tool-card:hover .tool-arrow { color: #2563EB; }
+
+    .live-badge {
+      position: absolute; top: 14px; right: 48px;
+      font-size: 9px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #059669; background: #D1FAE5;
+      border: 1px solid #A7F3D0; border-radius: 999px; padding: 2px 8px;
+    }
+
+    /* ── Coming soon ── */
+    .coming-soon {
+      border: 1px dashed #E5E7EB; border-radius: 12px;
+      padding: 32px 24px; text-align: center;
+      background: #FAFAFA;
+    }
+
+    .coming-soon .cs-icon {
+      font-size: 28px; margin-bottom: 12px;
+    }
+
+    .coming-soon h3 {
+      font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 6px;
+    }
+
+    .coming-soon p {
+      font-size: 12px; color: #9CA3AF; line-height: 1.6; max-width: 380px; margin: 0 auto;
+    }
+
+    .pulse {
+      display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+      background: #10B981; margin-right: 5px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 24px;
+      font-size: 11px; color: #9CA3AF;
+      border-top: 1px solid #F3F4F6;
+    }
+
+    footer a { color: #9CA3AF; text-decoration: none; }
+    footer a:hover { color: #374151; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="avatar">RS</div>
+    <h1>Raj Subedi</h1>
+    <div class="role">PhD Student · Epidemiology · Georgia State University</div>
+    <div class="affil">Chowell Lab · 2CI Fellow · Graduate Research Assistant</div>
+    <div class="social-links">
+      <a href="https://github.com/rajsubediresearch" target="_blank">GitHub</a>
+      <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-label">Open-source epidemiology tools</div>
+
+    <div class="tools-grid">
+
+      <!-- DAG Builder -->
+      <a class="tool-card" href="https://rajsubediresearch.github.io/dag-builder" target="_blank">
+        <div class="tool-icon" style="background:#EFF6FF;">🔗</div>
+        <div class="tool-body">
+          <h3>DAG Builder</h3>
+          <p>A browser-based causal diagram editor for epidemiologists. Define variables by causal role, draw directed edges, get instant structural validation warnings, and export publication-ready dagitty R code.</p>
+          <div class="tag-row">
+            <span class="tag" style="background:#DBEAFE;border-color:#93C5FD;color:#1E3A8A">Causal inference</span>
+            <span class="tag" style="background:#EDE9FE;border-color:#C4B5FD;color:#3B0764">DAGs</span>
+            <span class="tag" style="background:#D1FAE5;border-color:#6EE7B7;color:#064E3B">dagitty</span>
+            <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">React</span>
+          </div>
+        </div>
+        <span class="live-badge"><span class="pulse"></span>Live</span>
+        <span class="tool-arrow">→</span>
+      </a>
+
+    </div>
+
+    <!-- Coming soon -->
+    <div class="coming-soon">
+      <div class="cs-icon">🚧</div>
+      <h3>More tools on the way</h3>
+      <p>Epidemic forecasting utilities, excess mortality pipelines, and sub-epidemic decomposition tools are in development. Stay tuned.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    Built by <a href="https://github.com/rajsubediresearch">Raj Subedi</a> ·
+    Chowell Lab, Georgia State University ·
+    <a href="https://github.com/rajsubediresearch" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+</html>
