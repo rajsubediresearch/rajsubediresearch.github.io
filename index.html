@@ -168,11 +168,12 @@
       background: #1E3A5F; color: #fff; border-radius: 4px;
       padding: 2px 8px; margin-top: 8px; text-decoration: none;
       letter-spacing: 0.02em; transition: background 0.15s;
+      cursor: pointer;
     }
     .doi-badge:hover { background: #2563EB; }
-    .doi-badge span.doi-label {
+    .doi-badge .doi-label {
       background: #111; border-radius: 3px 0 0 3px;
-      padding: 1px 5px; margin: -2px -4px -2px -6px; margin-right: 5px;
+      padding: 1px 5px; margin: -2px 5px -2px -8px;
       font-size: 9px; letter-spacing: 0.05em;
     }
   </style>
@@ -208,9 +209,9 @@
             <span class="tag" style="background:#D1FAE5;border-color:#6EE7B7;color:#064E3B">dagitty</span>
             <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">React</span>
           </div>
-          <a class="doi-badge" href="https://doi.org/10.5281/zenodo.20058009" target="_blank" onclick="event.stopPropagation()">
+          <span class="doi-badge" onclick="event.preventDefault();event.stopPropagation();window.open('https://doi.org/10.5281/zenodo.20058009','_blank')">
             <span class="doi-label">DOI</span>10.5281/zenodo.20058009
-          </a>
+          </span>
         </div>
         <span class="live-badge"><span class="pulse"></span>Live</span>
         <span class="tool-arrow">→</span>
@@ -228,9 +229,9 @@
             <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">Demography</span>
             <span class="tag" style="background:#EDE9FE;border-color:#C4B5FD;color:#3B0764">Teaching</span>
           </div>
-          <a class="doi-badge" href="https://doi.org/10.5281/zenodo.20068581" target="_blank" onclick="event.stopPropagation()">
+          <span class="doi-badge" onclick="event.preventDefault();event.stopPropagation();window.open('https://doi.org/10.5281/zenodo.20068581','_blank')">
             <span class="doi-label">DOI</span>10.5281/zenodo.20068581
-          </a>
+          </span>
         </div>
         <span class="live-badge"><span class="pulse"></span>Live</span>
         <span class="tool-arrow">→</span>
