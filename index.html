@@ -1,316 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raj Subedi | Epidemiology and Biostatistics Tools</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Raj Kumar Subedi</title>
+<meta name="description" content="Raj Kumar Subedi — PhD student in epidemiology at Georgia State University. Infectious disease modeling, excess mortality, and applied biostatistics." />
+<link rel="canonical" href="https://rajsubediresearch.github.io/" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Raj Kumar Subedi" />
+<meta property="og:description" content="PhD student in epidemiology, Georgia State University. Infectious disease modeling, excess mortality, applied biostatistics." />
+<meta property="og:url" content="https://rajsubediresearch.github.io/" />
+<meta property="og:image" content="https://rajsubediresearch.github.io/raj-subedi.jpg" />
 
-    body {
-      font-family: 'IBM Plex Sans', system-ui, sans-serif;
-      background: #F9FAFB;
-      color: #111827;
-      min-height: 100vh;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap" rel="stylesheet" />
 
-    /* ── Header ── */
-    header {
-      background: #fff;
-      border-bottom: 1px solid #E5E7EB;
-      padding: 40px 24px 32px;
-      text-align: center;
-    }
+<style>
+  :root {
+    --paper:    #F2F3EF;
+    --ink:      #101418;
+    --ink-soft: #4E555D;
+    --ink-faint:#8B929A;
+    --rule:     #DDDFD8;
+    --pine:     #1B5E57;
+  }
 
-    .avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, #2563EB, #7C3AED);
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 28px; color: #fff; font-weight: 600;
-      margin-bottom: 16px; letter-spacing: -1px;
-    }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
 
-    header h1 {
-      font-size: 24px; font-weight: 600; color: #111827;
-      letter-spacing: -0.03em; margin-bottom: 6px;
-    }
+  body {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.65;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
 
-    header .role {
-      font-size: 13px; color: #6B7280; margin-bottom: 4px;
-    }
+  .page { max-width: 760px; margin: 0 auto; padding: 0 26px 80px; }
 
-    header .affil {
-      font-size: 12px; color: #9CA3AF;
-    }
+  a { color: var(--pine); text-decoration: none; border-bottom: 1px solid rgba(27,94,87,.28); }
+  a:hover, a:focus-visible { border-bottom-color: var(--pine); }
 
-    .social-links {
-      display: flex; gap: 12px; justify-content: center; margin-top: 16px;
-    }
+  /* ── masthead ── */
+  .masthead {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    gap: 28px;
+    align-items: start;
+    padding: 64px 0 34px;
+  }
 
-    .social-links a {
-      font-size: 11px; color: #6B7280; text-decoration: none;
-      padding: 4px 10px; border: 1px solid #E5E7EB; border-radius: 999px;
-      transition: all 0.15s;
-    }
+  .portrait {
+    width: 116px; height: 116px;
+    border-radius: 3px;
+    object-fit: cover;
+    background: #fff;
+    border: 1px solid var(--rule);
+  }
 
-    .social-links a:hover {
-      background: #F3F4F6; color: #111827;
-    }
+  h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(32px, 6vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
 
-    /* ── Main ── */
-    main {
-      max-width: 760px; margin: 0 auto; padding: 48px 24px 80px;
-    }
+  .creds {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 8px;
+  }
 
-    .section-label {
-      font-size: 10px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.1em; color: #9CA3AF; margin-bottom: 20px;
-    }
+  .position { margin-top: 12px; color: var(--ink-soft); max-width: 46ch; }
 
-    /* ── Tool cards ── */
-    .tools-grid {
-      display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px;
-    }
+  .contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    margin-top: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px 18px;
+  }
 
-    .tool-card {
-      background: #fff; border: 1px solid #E5E7EB; border-radius: 12px;
-      padding: 20px 24px; text-decoration: none; color: inherit;
-      display: flex; align-items: flex-start; gap: 18px;
-      transition: all 0.15s; position: relative; overflow: hidden;
-    }
+  /* ── sections ── */
+  section { padding-top: 34px; }
 
-    .tool-card:hover {
-      border-color: #2563EB; box-shadow: 0 4px 16px rgba(37,99,235,0.08);
-      transform: translateY(-1px);
-    }
+  h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 18px;
+  }
 
-    .tool-icon {
-      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 20px;
-    }
+  .lede { max-width: 68ch; color: var(--ink-soft); }
+  .lede strong { font-weight: 500; color: var(--ink); }
 
-    .tool-card .tool-body { flex: 1; min-width: 0; }
+  /* ── dated entries: mono rail on the left ── */
+  .entry {
+    display: grid;
+    grid-template-columns: 132px 1fr;
+    gap: 22px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(221,223,216,.6);
+  }
+  .entry:last-child { border-bottom: none; }
 
-    .tool-card h3 {
-      font-size: 15px; font-weight: 600; color: #111827;
-      margin-bottom: 4px; letter-spacing: -0.01em;
-    }
+  .when {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    line-height: 1.9;
+    white-space: nowrap;
+  }
 
-    .tool-card p {
-      font-size: 12px; color: #6B7280; line-height: 1.6; margin-bottom: 10px;
-    }
+  .what .role { font-weight: 500; }
+  .what .where { color: var(--ink-soft); font-size: 14px; }
+  .what .detail { color: var(--ink-soft); font-size: 13.5px; margin-top: 3px; max-width: 62ch; }
 
-    .tag-row { display: flex; flex-wrap: wrap; gap: 5px; }
+  /* ── publications ── */
+  ol.pubs { list-style: none; counter-reset: pub; }
 
-    .tag {
-      font-size: 10px; padding: 2px 8px; border-radius: 999px;
-      font-weight: 500; border: 1px solid;
-    }
+  ol.pubs li {
+    counter-increment: pub;
+    display: grid;
+    grid-template-columns: 132px 1fr;
+    gap: 22px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(221,223,216,.6);
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  ol.pubs li:last-child { border-bottom: none; }
 
-    .tool-arrow {
-      font-size: 18px; color: #D1D5DB; align-self: center; flex-shrink: 0;
-      transition: color 0.15s;
-    }
-    .tool-card:hover .tool-arrow { color: #2563EB; }
+  ol.pubs .year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px; color: var(--ink-faint); line-height: 1.9;
+  }
+  ol.pubs .venue { color: var(--ink-faint); font-style: italic; }
+  ol.pubs b { font-weight: 500; color: var(--ink); }
 
-    .live-badge {
-      position: absolute; top: 14px; right: 48px;
-      font-size: 9px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.06em; color: #059669; background: #D1FAE5;
-      border: 1px solid #A7F3D0; border-radius: 999px; padding: 2px 8px;
-    }
+  /* ── tools ── */
+  .tool {
+    display: grid;
+    grid-template-columns: 132px 1fr;
+    gap: 22px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(221,223,216,.6);
+  }
+  .tool:last-child { border-bottom: none; }
+  .tool .name { font-weight: 500; }
+  .tool .name a { color: var(--ink); border-bottom-color: rgba(16,20,24,.2); }
+  .tool .name a:hover { color: var(--pine); border-bottom-color: var(--pine); }
+  .tool p { font-size: 13.5px; color: var(--ink-soft); max-width: 62ch; }
+  .tool .doi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    color: var(--ink-faint); border: none; display: inline-block; margin-top: 3px;
+  }
+  .tool .doi:hover { color: var(--pine); }
 
-    /* ── Coming soon ── */
-    .coming-soon {
-      border: 1px dashed #E5E7EB; border-radius: 12px;
-      padding: 32px 24px; text-align: center;
-      background: #FAFAFA;
-    }
+  .links {
+    display: flex; flex-wrap: wrap; gap: 4px 14px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    margin-top: 5px;
+  }
+  .links a { color: var(--ink-faint); border-bottom: 1px solid transparent; }
+  .links a:hover { color: var(--pine); border-bottom-color: var(--pine); }
 
-    .coming-soon .cs-icon {
-      font-size: 28px; margin-bottom: 12px;
-    }
+  .skills { display: grid; grid-template-columns: 132px 1fr; gap: 22px; padding: 13px 0; }
+  .skills p { color: var(--ink-soft); font-size: 14px; }
 
-    .coming-soon h3 {
-      font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 6px;
-    }
+  footer {
+    margin-top: 44px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+  footer a { color: var(--ink-faint); border-bottom-color: transparent; }
+  footer a:hover { color: var(--pine); }
 
-    .coming-soon p {
-      font-size: 12px; color: #9CA3AF; line-height: 1.6; max-width: 380px; margin: 0 auto;
-    }
+  @media (max-width: 620px) {
+    .masthead { grid-template-columns: 84px 1fr; gap: 18px; padding-top: 44px; }
+    .portrait { width: 84px; height: 84px; }
+    .entry, ol.pubs li, .tool, .skills { grid-template-columns: 1fr; gap: 4px; }
+    .when, ol.pubs .year { line-height: 1.6; }
+  }
 
-    .pulse {
-      display: inline-block; width: 7px; height: 7px; border-radius: 50%;
-      background: #10B981; margin-right: 5px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center; padding: 24px;
-      font-size: 11px; color: #9CA3AF;
-      border-top: 1px solid #F3F4F6;
-    }
-
-    footer a { color: #9CA3AF; text-decoration: none; }
-    footer a:hover { color: #374151; }
-
-    .doi-badge {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: 10px; font-weight: 600; font-family: 'IBM Plex Mono', monospace;
-      background: #1E3A5F; color: #fff; border-radius: 4px;
-      padding: 2px 8px; margin-top: 8px; text-decoration: none;
-      letter-spacing: 0.02em; transition: background 0.15s;
-      cursor: pointer;
-    }
-    .doi-badge:hover { background: #2563EB; }
-    .doi-badge .doi-label {
-      background: #111; border-radius: 3px 0 0 3px;
-      padding: 1px 5px; margin: -2px 5px -2px -8px;
-      font-size: 9px; letter-spacing: 0.05em;
-    }
-  </style>
+  /* ── print: the page doubles as a printable CV ── */
+  @media print {
+    body { background: #fff; font-size: 10.5pt; }
+    .page { max-width: none; padding: 0; }
+    .masthead { padding-top: 0; }
+    a { color: #000; border-bottom: none; }
+    section, .entry, ol.pubs li, .tool { break-inside: avoid; }
+    .no-print { display: none; }
+  }
+</style>
 </head>
 <body>
+<div class="page">
 
-  <header>
-    <div class="avatar">RS</div>
-    <h1>Raj Subedi</h1>
-    <div class="role">PhD Student · Epidemiology · Georgia State University</div>
-    <div class="affil">Chowell Lab · 2CI Fellow · Graduate Research Assistant</div>
-    <div class="social-links">
-      <a href="https://github.com/rajsubediresearch" target="_blank">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=Lf5R5zwAAAAJ&hl=en&authuser=1" target="_blank">Google Scholar</a>
-      <a href="https://zenodo.org/search?q=rajsubediresearch&l=list&p=1&s=10&sort=bestmatch" target="_blank">Zenodo</a>
+  <header class="masthead">
+    <img class="portrait" src="raj-subedi.jpg" alt="Raj Kumar Subedi" />
+    <div>
+      <h1>Raj Kumar Subedi</h1>
+      <div class="creds">BPH · MPH · PhD in progress</div>
+      <p class="position">
+        Doctoral student in epidemiology and Graduate Research Assistant,
+        School of Public Health, Georgia State University, Atlanta.
+      </p>
+      <div class="contact">
+        <a href="mailto:rsubedi1@student.gsu.edu">rsubedi1@student.gsu.edu</a>
+        <a href="https://github.com/rajsubediresearch">github.com/rajsubediresearch</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <div class="section-label">Open-source epidemiology and biostatistics tools</div>
 
-    <div class="tools-grid">
+    <section>
+      <h2>About</h2>
+      <p class="lede">
+        I am a public health researcher with more than fifteen years of experience applying
+        epidemiological and biostatistical methods across academia, research, and national
+        public health programs. My current work centers on
+        <strong>mathematical modeling of infectious diseases, epidemic forecasting, and
+        excess mortality estimation</strong>. Earlier in my career I worked on maternal and
+        child health, health disparities, and program evaluation, often with multidisciplinary
+        teams across several countries.
+      </p>
+    </section>
 
-      <!-- DAG Builder -->
-      <a class="tool-card" href="https://rajsubediresearch.github.io/dag-builder" target="_blank">
-        <div class="tool-icon" style="background:#EFF6FF;">🔗</div>
-        <div class="tool-body">
-          <h3>DAG Builder</h3>
-          <p>A browser-based causal diagram editor for epidemiologists. Define variables by causal role, draw directed edges, get instant structural validation warnings, and export publication-ready dagitty R code.</p>
-          <div class="tag-row">
-            <span class="tag" style="background:#DBEAFE;border-color:#93C5FD;color:#1E3A8A">Causal inference</span>
-            <span class="tag" style="background:#EDE9FE;border-color:#C4B5FD;color:#3B0764">DAGs</span>
-            <span class="tag" style="background:#D1FAE5;border-color:#6EE7B7;color:#064E3B">dagitty</span>
-            <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">React</span>
-          </div>
-          <span class="doi-badge" onclick="event.preventDefault();event.stopPropagation();window.open('https://doi.org/10.5281/zenodo.20058009','_blank')">
-            <span class="doi-label">DOI</span>10.5281/zenodo.20058009
-          </span>
+    <section>
+      <h2>Education</h2>
+
+      <div class="entry">
+        <div class="when">2025 – present</div>
+        <div class="what">
+          <div class="role">PhD, Public Health (Epidemiology)</div>
+          <div class="where">Georgia State University, School of Public Health, Atlanta, GA</div>
         </div>
-        <span class="live-badge"><span class="pulse"></span>Live</span>
-        <span class="tool-arrow">→</span>
-      </a>
+      </div>
 
-      <!-- Age Standardization Dashboard -->
-      <a class="tool-card" href="https://rajsubediresearch.github.io/age-standardization-dashboard/" target="_blank">
-        <div class="tool-icon" style="background:#F0FDF4;">📊</div>
-        <div class="tool-body">
-          <h3>Age Standardization Dashboard</h3>
-          <p>Interactive direct and indirect age standardization calculator. Editable age groups, custom rate labels (ASMR, CMR, etc.), and downloadable results as CSV, TXT, or HTML.</p>
-          <div class="tag-row">
-            <span class="tag" style="background:#D1FAE5;border-color:#6EE7B7;color:#064E3B">Direct method</span>
-            <span class="tag" style="background:#DBEAFE;border-color:#93C5FD;color:#1E3A8A">Indirect / SMR</span>
-            <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">Demography</span>
-            <span class="tag" style="background:#EDE9FE;border-color:#C4B5FD;color:#3B0764">Teaching</span>
-          </div>
-          <span class="doi-badge" onclick="event.preventDefault();event.stopPropagation();window.open('https://doi.org/10.5281/zenodo.20068581','_blank')">
-            <span class="doi-label">DOI</span>10.5281/zenodo.20068581
-          </span>
+      <div class="entry">
+        <div class="when">2009 – 2011</div>
+        <div class="what">
+          <div class="role">Master of Public Health</div>
+          <div class="where">B. P. Koirala Institute of Health Sciences, Dharan, Nepal</div>
         </div>
-        <span class="live-badge"><span class="pulse"></span>Live</span>
-        <span class="tool-arrow">→</span>
-      </a>
+      </div>
 
-      <!-- EpiTables -->
-      <a class="tool-card" href="https://rajsubediresearch.github.io/epitables/" target="_blank">
-        <div class="tool-icon" style="background:#F5F3FF;">🔢</div>
-        <div class="tool-body">
-          <h3>EpiTables</h3>
-          <p>Interactive summary measures from a 2×2 contingency table. Covers OR, RR, PR, RD, NNT, AF, PAF, sensitivity, specificity, PPV, NPV, likelihood ratios, McNemar's test, single proportion CIs, and prevalence-adjusted predictive values. Runs entirely in the browser — no R, no server.</p>
-          <div class="tag-row">
-            <span class="tag" style="background:#EDE9FE;border-color:#C4B5FD;color:#3B0764">2×2 table</span>
-            <span class="tag" style="background:#DBEAFE;border-color:#93C5FD;color:#1E3A8A">Diagnostic accuracy</span>
-            <span class="tag" style="background:#D1FAE5;border-color:#6EE7B7;color:#064E3B">Confidence intervals</span>
-            <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">Teaching</span>
-          </div>
-          <span class="doi-badge" onclick="event.preventDefault();event.stopPropagation();window.open('https://doi.org/10.5281/zenodo.20135874','_blank')">
-            <span class="doi-label">DOI</span>10.5281/zenodo.20135874
-          </span>
+      <div class="entry">
+        <div class="when">2005 – 2008</div>
+        <div class="what">
+          <div class="role">Bachelor of Public Health</div>
+          <div class="where">Nepal Institute of Health Sciences, Kathmandu, Nepal</div>
         </div>
-        <span class="live-badge"><span class="pulse"></span>Live</span>
-        <span class="tool-arrow">→</span>
-      </a>
+      </div>
+    </section>
 
-      <!-- BioStat Explorer -->
-      <a class="tool-card" href="https://rajsubediresearch.com/biostat-explorer/" target="_blank">
-        <div class="tool-icon" style="background:#FFF7ED;">🧮</div>
-        <div class="tool-body">
-          <h3>BioStat Explorer</h3>
-          <p>Interactive biostatistics tool for education and research. Upload your own data (CSV, Excel, TXT) or use built-in sample datasets. Select variables, choose a model, and get results with auto-generated plain-English interpretations.</p>
-          <div class="tag-row">
-            <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">Regression</span>
-            <span class="tag" style="background:#DBEAFE;border-color:#93C5FD;color:#1E3A8A">ANOVA</span>
-            <span class="tag" style="background:#D1FAE5;border-color:#6EE7B7;color:#064E3B">t-test</span>
-            <span class="tag" style="background:#EDE9FE;border-color:#C4B5FD;color:#3B0764">Teaching</span>
-          </div>
-          <span class="doi-badge" onclick="event.preventDefault();event.stopPropagation();window.open('https://doi.org/10.5281/zenodo.20148664','_blank')">
-            <span class="doi-label">DOI</span>10.5281/zenodo.20148664
-          </span>
+    <section>
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="when">2025 – present</div>
+        <div class="what">
+          <div class="role">Graduate Research Assistant</div>
+          <div class="where">School of Public Health, Georgia State University, Atlanta, GA</div>
+          <p class="detail">Excess mortality estimation, mathematical modeling of infectious
+            disease, and geospatial analysis.</p>
         </div>
-        <span class="live-badge"><span class="pulse"></span>Live</span>
-        <span class="tool-arrow">→</span>
-      </a>
+      </div>
 
-<!-- EpiModelConcepts -->
-      <a class="tool-card" href="https://rajsubediresearch.github.io/epimodelconcepts/" target="_blank">
-        <div class="tool-icon" style="background:#F0FDF4;">📈</div>
-        <div class="tool-body">
-          <h3>EpiModelConcepts</h3>
-          <p>Interactive epidemic modeling concepts for teaching and research. Fit real outbreak data to phenomenological and statistical models, explore R₀, serial interval, doubling time, and differential equations — with three-layer outputs: definition, interpretation, and implication. No R, no installation.</p>
-          <div class="tag-row">
-            <span class="tag" style="background:#D1FAE5;border-color:#6EE7B7;color:#064E3B">Phenomenological</span>
-            <span class="tag" style="background:#DBEAFE;border-color:#93C5FD;color:#1E3A8A">Statistical models</span>
-            <span class="tag" style="background:#EDE9FE;border-color:#C4B5FD;color:#3B0764">R₀ / SIR explorer</span>
-            <span class="tag" style="background:#FEF3C7;border-color:#FCD34D;color:#78350F">Teaching</span>
-          </div>
-          <span class="doi-badge" onclick="event.preventDefault();event.stopPropagation();window.open('https://doi.org/10.5281/zenodo.20138554','_blank')">
-            <span class="doi-label">DOI</span>10.5281/zenodo.20138554
-          </span>
+      <div class="entry">
+        <div class="when">2020 – 2025</div>
+        <div class="what">
+          <div class="role">Research Consultant</div>
+          <div class="where">Bhaskar Tejshree Memorial Foundation, Kathmandu, Nepal</div>
+          <p class="detail">Analysis of intervention study data and co-authorship of resulting
+            publications.</p>
         </div>
-        <span class="live-badge"><span class="pulse"></span>Live</span>
-        <span class="tool-arrow">→</span>
-      </a>
+      </div>
 
-    <!-- Coming soon -->
-    <div class="coming-soon">
-      <div class="cs-icon">🚧</div>
-      <h3>More tools on the way</h3>
-      <p>More epidemiological and biostatistical tools are in development. Stay tuned.</p>
-    </div>
+      <div class="entry">
+        <div class="when">2018 – 2019</div>
+        <div class="what">
+          <div class="role">Research Manager</div>
+          <div class="where">Bhaskar Tejshree Memorial Foundation, Kathmandu, Nepal</div>
+          <p class="detail">Coordinated two school-based public health interventions.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2017 – 2018</div>
+        <div class="what">
+          <div class="role">Monitoring and Evaluation Manager</div>
+          <div class="where">Nepal Public Health Foundation, Kathmandu, Nepal</div>
+          <p class="detail">Led monitoring and evaluation across the organization's public
+            health projects.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2016 – 2017</div>
+        <div class="what">
+          <div class="role">Outcomes Specialist</div>
+          <div class="where">St. Jude's Recovery Center, Atlanta, GA</div>
+          <p class="detail">Patient outcomes, claims data, client satisfaction surveys, and
+            grant writing support.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2011 – 2015</div>
+        <div class="what">
+          <div class="role">Lecturer</div>
+          <div class="where">Central Institute of Science and Technology, Pokhara University,
+            Kathmandu, Nepal</div>
+          <p class="detail">Taught undergraduate epidemiology, biostatistics, and research
+            methods.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected publications</h2>
+      <ol class="pubs">
+        <li>
+          <span class="year">2026</span>
+          <span><b>Subedi RK</b>, Mamelund SE, Delgado I, Matute I, Laborde CC, Joaquin-Damas E,
+            Chowell G. Poverty and ethnic patterns in COVID-19 excess mortality: evidence from
+            Chile, 2020–2022. <span class="venue">American Journal of Epidemiology</span>,
+            195(4):1136–1146.</span>
+        </li>
+        <li>
+          <span class="year">2024</span>
+          <span><b>Subedi RK</b>, VanderZanden A, Adhikari K, Bastola S, Hirschhorn LR,
+            Binagwaho A, Maskey M. Integrated Management of Childhood Illness implementation in
+            Nepal: understanding strategies, context, and outcomes.
+            <span class="venue">BMC Pediatrics</span>, 23(Suppl 1):645.</span>
+        </li>
+        <li>
+          <span class="year">2024</span>
+          <span>Ntawukuriryayo JT, VanderZanden A, Amberbir A, Teklu A, Huda FA, Maskey M,
+            Sall M, Garcia PJ, <b>Subedi RK</b>, Sayinzoga F, Hirschhorn LR. Inequity in the face
+            of success: understanding geographic and wealth-based equity in success of
+            facility-based delivery for under-5 mortality reduction in six countries.
+            <span class="venue">BMC Pediatrics</span>, 23(Suppl 1):651.</span>
+        </li>
+        <li>
+          <span class="year">2024</span>
+          <span>Binagwaho A, VanderZanden A, Garcia PJ, Huda FA, Maskey M, Sall M, Sayinzoga F,
+            <b>Subedi RK</b>, Teklu AM, Donahoe K, Frisch M. Cross-country analysis of contextual
+            factors and implementation strategies in under-5 mortality reduction in six low- and
+            middle-income countries, 2000–2015.
+            <span class="venue">BMC Pediatrics</span>, 23(Suppl 1):652.</span>
+        </li>
+        <li>
+          <span class="year">2023</span>
+          <span>Vatsa R, Ghimire U, Sapkota S, <b>Subedi RK</b>. Spatial distribution of stunting
+            and wasting in 6–59 month children in Nepal: analysis using a Bayesian distributional
+            bivariate probit model. <span class="venue">Journal of Nutritional Science</span>,
+            12:e25.</span>
+        </li>
+        <li>
+          <span class="year">2022</span>
+          <span>Acharya K, Dharel D, <b>Subedi RK</b>, Bhattarai A, Paudel YR. Inequalities in
+            full vaccination coverage based on maternal education and wealth quintiles among
+            children aged 12–23 months: further analysis of national cross-sectional surveys of
+            six South Asian countries. <span class="venue">BMJ Open</span>,
+            12(2):e046971.</span>
+        </li>
+        <li>
+          <span class="year">2021</span>
+          <span>Dahal S, Luo R, <b>Subedi RK</b>, Dhimal M, Chowell G. Transmission dynamics and
+            short-term forecasts of COVID-19: Nepal 2020/2021.
+            <span class="venue">Epidemiologia</span>, 2(4):639–659.</span>
+        </li>
+        <li>
+          <span class="year">2021</span>
+          <span>Acharya K, <b>Subedi RK</b>, Dahal S, Karkee R. Basic emergency obstetric and
+            newborn care service availability and readiness in Nepal: analysis of the 2015 Nepal
+            Health Facility Survey. <span class="venue">PLOS ONE</span>, 16(7):e0254561.</span>
+        </li>
+        <li>
+          <span class="year">2021</span>
+          <span>Lama Yonzon C, Padmawati RS, <b>Subedi RK</b>, Paudel S, Ghimire A,
+            Murhandarwati EH. Exploring determinants of hydrocele surgery coverage related to
+            lymphatic filariasis in Nepal: an implementation research study.
+            <span class="venue">PLOS ONE</span>, 16(2):e0244664.</span>
+        </li>
+        <li>
+          <span class="year">2020</span>
+          <span>Conway K, Akseer N, <b>Subedi RK</b>, Brar S, Bhattarai B, Dhungana RR, Islam M,
+            Mainali A, Pradhan N, Tasic H, Thakur DN. Drivers of stunting reduction in Nepal: a
+            country case study. <span class="venue">The American Journal of Clinical
+            Nutrition</span>, 112:844S–859S.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Open-source software</h2>
+
+      <div class="tool">
+        <div class="when">R · CRAN</div>
+        <div>
+          <div class="name"><a href="https://CRAN.R-project.org/package=RtForecastR">RtForecastR</a></div>
+          <p>Estimation and short-term forecasting of the time-varying reproduction number.</p>
+          <div class="links">
+            <a href="https://CRAN.R-project.org/package=RtForecastR">CRAN</a>
+            <a href="https://github.com/rajsubediresearch/RtForecastR">Source</a>
+            <a href="https://github.com/rajsubediresearch/RtForecastR-tutorial">Tutorial</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="when">R · CRAN</div>
+        <div>
+          <div class="name"><a href="https://CRAN.R-project.org/package=epibyhand">epibyhand</a></div>
+          <p>Epidemiologic measures that show every intermediate step, so students can check
+            work done by hand. Covers 2×2 measures, stratified analysis, and Mantel–Haenszel
+            adjustment.</p>
+          <div class="links">
+            <a href="https://CRAN.R-project.org/package=epibyhand">CRAN</a>
+            <a href="https://github.com/rajsubediresearch/epibyhand">Source</a>
+            <a href="https://github.com/rajsubediresearch/epibyhand-tutorial">Tutorial</a>
+            <a href="https://doi.org/10.5281/zenodo.21808842">doi:10.5281/zenodo.21808842</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="when">Julia · General</div>
+        <div>
+          <div class="name"><a href="https://github.com/rajsubediresearch/GrowthFit.jl">GrowthFit.jl</a></div>
+          <p>Phenomenological growth-model fitting for outbreak data, with parametric bootstrap
+            uncertainty, forecast scoring, and identifiability screening.</p>
+          <div class="links">
+            <a href="https://github.com/rajsubediresearch/GrowthFit.jl">Source</a>
+            <a href="https://doi.org/10.5281/zenodo.21696876">doi:10.5281/zenodo.21696876</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="when">Julia · General</div>
+        <div>
+          <div class="name"><a href="https://github.com/rajsubediresearch/ComplexSurvey.jl">ComplexSurvey.jl</a></div>
+          <p>Complex survey analysis with Taylor-linearization variance — means, totals, domain
+            estimation, regression, and survival models. Validated against R's survey package on
+            NHANES and DHS designs.</p>
+          <div class="links">
+            <a href="https://github.com/rajsubediresearch/ComplexSurvey.jl">Source</a>
+            <a href="https://doi.org/10.5281/zenodo.21792820">doi:10.5281/zenodo.21792820</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Interactive tools</h2>
+
+      <div class="tool">
+        <div class="when">Causal inference</div>
+        <div>
+          <div class="name"><a href="https://rajsubediresearch.github.io/dag-builder/">DAG Builder</a></div>
+          <p>Draw a causal diagram in the browser and export dagitty code.</p>
+          <a class="doi" href="https://doi.org/10.5281/zenodo.20058009">doi:10.5281/zenodo.20058009</a>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="when">Demography</div>
+        <div>
+          <div class="name"><a href="https://rajsubediresearch.github.io/age-standardization-dashboard/">Age Standardization Dashboard</a></div>
+          <p>Direct and indirect age standardization with editable age groups.</p>
+          <a class="doi" href="https://doi.org/10.5281/zenodo.20068581">doi:10.5281/zenodo.20068581</a>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="when">Measures</div>
+        <div>
+          <div class="name"><a href="https://rajsubediresearch.github.io/epitables/">EpiTables</a></div>
+          <p>Summary and diagnostic-accuracy measures from a 2×2 table.</p>
+          <a class="doi" href="https://doi.org/10.5281/zenodo.20135874">doi:10.5281/zenodo.20135874</a>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="when">Biostatistics</div>
+        <div>
+          <div class="name"><a href="https://rajsubediresearch.github.io/biostat-explorer/">BioStat Explorer</a></div>
+          <p>Upload data, fit a model, and read the output alongside a plain-English reading of it.</p>
+          <a class="doi" href="https://doi.org/10.5281/zenodo.20148664">doi:10.5281/zenodo.20148664</a>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="when">Epidemic modeling</div>
+        <div>
+          <div class="name"><a href="https://rajsubediresearch.github.io/epimodelconcepts/">EpiModelConcepts</a></div>
+          <p>Fit outbreak data to growth models and explore R₀, serial interval, and doubling time.</p>
+          <a class="doi" href="https://doi.org/10.5281/zenodo.20138554">doi:10.5281/zenodo.20138554</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <div class="skills">
+        <div class="when">Languages</div>
+        <p>R, Python, SAS, MATLAB, Julia, QGIS</p>
+      </div>
+    </section>
 
   </main>
 
   <footer>
-    Built by <a href="https://github.com/rajsubediresearch">Raj Subedi</a> ·
-    Chowell Lab, Georgia State University ·
-    <a href="https://github.com/rajsubediresearch" target="_blank">View on GitHub</a>
+    Raj Kumar Subedi · Atlanta, GA ·
+    <a href="https://github.com/rajsubediresearch">github.com/rajsubediresearch</a>
   </footer>
 
+</div>
 </body>
 </html>
